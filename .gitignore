@@ -1,0 +1,15 @@
+*
+!*.md
+!images
+!images/*.png
+!images/*.jpg
+!images/*.webp
+!images/*.avif
+!README.md
+!assets
+!assets/*.*
+!.github/
+!.github/workflows
+!.github/workflows/*.yml
+.DS_Store
+!.gitignore
