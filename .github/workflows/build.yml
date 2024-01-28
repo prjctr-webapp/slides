@@ -1,0 +1,41 @@
+name: Slide build and publishing
+on: [push]
+permissions:
+  contents: write
+jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Check out repository code
+          uses: actions/checkout@v4
+
+        - name: git
+          run: |
+            # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
+            git --version
+            git config user.name "GitHub Actions Bot"
+            git config user.email "<>"
+            git status
+
+        - name: Adding assets
+          run: |
+            git fetch --all
+            git pull --all
+            git rebase origin/assets
+
+        - name: Copying reveal.js config to the root dir
+          run: mv ./assets/reveal-md.json ./
+
+        - name: List files in the repository
+          run: |
+            ls ${{ github.workspace }}
+        - run: node -v
+        - run: npm -v
+        
+        - name: Build
+          run: npx reveal-md ./ --css ./assets/theme.css --static public --static-dirs=assets --assets-dir=.
+      
+        - name: Deploy
+          uses: JamesIves/github-pages-deploy-action@v4
+          with:
+            folder: public
