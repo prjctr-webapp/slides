@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
+@font-face {
+  font-family: "Univers";
+  src: url("./Univers.otf");
+  font-style: normal;
+  font-weight: normal;
+}
+
+:root {
+  --r-background-color: #3548fe;
+  --r-main-font: Univers;
+  --r-code-font: Source Code Pro;
+  --r-heading-font: var(--r-main-font);
+  --r-main-font-size: 21pt;
+  --r-code-font-size: 18pt;
+  --r-heading-text-transform: unset;
+  --r-heading1-size: 130px;
+  --r-heading2-size: calc(var(--r-heading1-size) * 0.66);
+  --r-heading3-size: calc(var(--r-heading2-size) * 0.66);
+  --r-heading-line-height: 1;
+}
+.reveal-viewport {
+  background-image: url(/Logo.svg);
+  background-repeat: no-repeat;
+  background-size: 100px;
+  background-position: calc(95vw - 100px) 5vh;
+}
+.reveal {
+  & .slides {
+    text-align: left;
+  }
+
+  & :is(p, li) code {
+    background-color: darkslategrey;
+    padding: 0pt 6pt;
+    border-radius: 4pt;
+  }
+
+  & pre {
+    width: 100%;
+    font-size: var(--r-code-font-size);
+  }
+
+  & .code-wrapper code {
+    padding: 12pt;
+  }
+
+  & :is(h1, h2, h3, h4, p, ul) {
+    max-width: 85%;
+  }
+
+  & .slides ul {
+    list-style: none;
+    margin-left: 1.3em;
+    & li::before {
+      content: "— ";
+      margin-left: -1.3em;
+    }
+  }
+
+  & li {
+    margin-bottom: 12pt;
+  }
+}
