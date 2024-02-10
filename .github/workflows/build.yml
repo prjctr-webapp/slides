@@ -1,5 +1,5 @@
 name: Slide build and publishing
-on: [push]
+on: [push, workflow_dispatch]
 permissions:
   contents: write
 jobs:

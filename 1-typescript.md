@@ -2,6 +2,7 @@
 title: "Typescript I"
 customTheme: "theme"
 width: 1280
+height: 720
 ---
 
 # Typescript
